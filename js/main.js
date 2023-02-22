@@ -27,15 +27,16 @@ bigliettoAnziani = bigliettoAnziani.toFixed(2);
 
 
 if (eta < 18) {
-  document.getElementById('prezzo-viaggio').innerHTML = bigliettoGiovani + '€ Hai uno sconto del 20% perché sei minorenne!';
+  document.getElementById('prezzo-viaggio').innerHTML = 'Il prezzo è di € ' + bigliettoGiovani + '<p>Hai uno sconto del 20% perché sei minorenne!</p>';
   
 } else if (eta > 65) {
-  document.getElementById('prezzo-viaggio').innerHTML = bigliettoAnziani + '€ Hai uno sconto del 40% perché sei over 65!';
+  document.getElementById('prezzo-viaggio').innerHTML = 'Il prezzo è di € ' + bigliettoAnziani + '<p>Hai uno sconto del 40% perché sei over 65!</p>';
 
 } else {
-  document.getElementById('prezzo-viaggio').innerHTML = prezzoBigliettoBase + '€';
+  document.getElementById('prezzo-viaggio').innerHTML = 'Il prezzo è di € ' + prezzoBigliettoBase;
  
 }
+
 
 /*
 if (eta < 18) {
