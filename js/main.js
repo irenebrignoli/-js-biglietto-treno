@@ -21,13 +21,33 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio
 
 
 
-const distanza = prompt('Inserisci la distanza che vuoi percorrere (km)');
-console.log(distanza);
+const distanza = parseInt(prompt('Inserisci la distanza che vuoi percorrere (km)'));
+console.log('Distanza: ' + distanza);
 
-const eta = prompt('Inserisci la tua età');
-console.log(eta);
+const eta = parseInt(prompt('Inserisci la tua età'));
+console.log('Età: ' + eta);
 
+let prezzoAlKm = 0.21;
 
+let prezzoBigliettoBase = prezzoAlKm * distanza;
+console.log('Prezzo biglietto normale: ' + prezzoBigliettoBase);
 
+let scontoGiovani = (prezzoBigliettoBase / 100) * 20;
+console.log('Sconto giovani: ' + scontoGiovani);
 
-//document.getElementById('risultato').innerHTML = distanza;
+let scontoAnziani = (prezzoBigliettoBase / 100) * 40;
+console.log('Sconto anziani: ' + scontoAnziani);
+
+let risultato;
+
+if (eta < 18) {
+  risultato = prezzoBigliettoBase - scontoGiovani;
+} else if (eta > 65) {
+  risultato = prezzoBigliettoBase - scontoAnziani;
+} else {
+  risultato = prezzoBigliettoBase;
+}
+
+risultato = risultato.toFixed(2);
+
+document.getElementById('prezzo-viaggio').innerHTML = risultato;
